@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IntraOne</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <style>
         /* Native CSS for extra customization */
         .hero-bg {
@@ -60,8 +61,8 @@
     </nav>
 
     <!-- Bagian HERO Section -->
-    <section class="hero-bg min-h-[600px] flex items-center">
-        <div class="container mx-auto px-8 md:px-15 flex flex-col md:flex-row items-center">
+    <section class="hero-bg h-screen flex items-center md:h-[640px]">
+        <div class="container px-8 md:px-15 flex flex-col md:flex-row items-center">
     
             <!-- Text Section -->
             <div class="w-full md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
@@ -91,40 +92,41 @@
 
 
     <!-- Services Section -->
-    <section id="services" class="py-16 bg-sky-100">
-        <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-20">Layanan Kami</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3">
+    <section id="services" class="py-16 bg-sky-50">
+        <div class="container mx-auto px-4" data-aos="fade-up" data-aos-delay="0">
+          <h2 class="text-3xl font-bold text-center mb-3">Layanan Kami</h2>
+          <p class="text-lg text-center mb-10">IntraOne memberikan layanan-layanan yang menjamin kenyamanan kamu</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
             
             <!-- Card 1 -->
-            <div class="flex justify-center">
+            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="0">
               <div class="bg-white rounded-lg overflow-hidden shadow-md w-full max-w-sm">
                 <img src="media/cardhero1.png" alt="Internet Rumah" class="w-full h-48 object-cover">
                 <div class="p-4 text-center">
                   <h3 class="text-lg font-bold mb-2 text-sky-700">Internet Rumah Super Cepat</h3>
-                  <p>Nikmati layanan internet rumah berkecepatan tinggi dari IntraOne yang dirancang untuk memenuhi kebutuhan digital keluarga Anda.</p>
+                  <p class="text-sm p-2">Nikmati layanan internet rumah berkecepatan tinggi dari IntraOne yang dirancang untuk memenuhi kebutuhan digital keluarga Anda.</p>
                 </div>
               </div>
             </div>
       
             <!-- Card 2 -->
-            <div class="flex justify-center">
+            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="0">
               <div class="bg-white rounded-lg overflow-hidden shadow-md w-full max-w-sm">
                 <img src="media/cardhero1.png" alt="Internet Bisnis" class="w-full h-48 object-cover">
                 <div class="p-4 text-center">
                   <h3 class="text-lg font-bold mb-2 text-sky-700">Internet Bisnis Profesional</h3>
-                  <p>Tingkatkan produktivitas bisnis Anda dengan layanan internet bisnis dari IntraOne yang menjamin koneksi cepat, stabil, dan dapat diandalkan.</p>
+                  <p class="text-sm p-2">Tingkatkan produktivitas bisnis Anda dengan layanan internet bisnis dari IntraOne yang menjamin koneksi cepat, stabil, dan dapat diandalkan.</p>
                 </div>
               </div>
             </div>
       
             <!-- Card 3 -->
-            <div class="flex justify-center">
+            <div class="flex justify-center" data-aos="fade-up" data-aos-delay="0">
               <div class="bg-white rounded-lg overflow-hidden shadow-md w-full max-w-sm">
                 <img src="media/cardhero1.png" alt="Layanan Support" class="w-full h-48 object-cover">
                 <div class="p-4 text-center">
                   <h3 class="text-lg font-bold mb-2 text-sky-700">Dukungan Teknis 24/7</h3>
-                  <p>IntraOne menghadirkan layanan dukungan teknis yang siap membantu Anda kapan pun dibutuhkan.</p>
+                  <p class="text-sm p-2">IntraOne menghadirkan layanan dukungan teknis yang siap membantu Anda kapan pun dibutuhkan.</p>
                 </div>
               </div>
             </div>
@@ -139,24 +141,23 @@
     <section id="pricing" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
           <h2 class="text-3xl font-bold text-center mb-12">Paket Harga</h2>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8 justify-items-center">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
             
             <!-- Pricing Card -->
-            <div class="bg-white rounded-2xl shadow-lg max-w-sm w-full">
-              <img src="media/cardhero1.png" alt="Paket Fast" class="w-full h-48 object-cover rounded-t-2xl">
+            <div class="bg-white rounded-2xl shadow-md max-w-sm w-full">
+              <img src="media/pricing1.png" alt="Paket Fast" class="w-full h-48 object-cover rounded-t-2xl">
               <div class="p-6 text-center">
-                <h3 class="text-xl font-semibold text-purple-700">Fast</h3>
+                <h3 class="text-xl font-semibold text-sky-600">Fast</h3>
                 <p class="text-sm text-gray-500 mb-2">50 Mbps</p>
                 <p class="text-3xl font-bold text-gray-800 mb-1">Rp 250.000 <span class="text-base font-medium text-gray-500">/ Bulan</span></p>
                 <p class="text-sm text-gray-500 mb-4">Harga belum termasuk PPN 11%</p>
       
-                <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-xl mb-2 transition">Langganan Sekarang</button>
-                <button class="w-full border border-gray-300 text-gray-800 py-2 px-4 rounded-xl hover:bg-gray-100 transition">Chat Sales</button>
-      
+                <button class="w-full bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-xl mb-2 transition">Langganan Sekarang</button>
+
                 <hr class="my-4">
       
                 <div class="text-left text-sm">
-                  <h4 class="font-semibold text-purple-700 mb-2">Fitur dan Benefit</h4>
+                  <h4 class="font-semibold text-sky-600 mb-2">Fitur dan Benefit</h4>
                   <ul class="space-y-2">
                     <li class="flex items-start gap-2">
                       <span>📶</span> <span>Internet UNLIMITED</span>
@@ -178,119 +179,7 @@
               </div>
             </div>
 
-            <!-- Pricing Card -->
-            <div class="bg-white rounded-2xl shadow-lg max-w-sm w-full">
-                <img src="media/cardhero1.png" alt="Paket Fast" class="w-full h-48 object-cover rounded-t-2xl">
-                <div class="p-6 text-center">
-                  <h3 class="text-xl font-semibold text-purple-700">Fast</h3>
-                  <p class="text-sm text-gray-500 mb-2">50 Mbps</p>
-                  <p class="text-3xl font-bold text-gray-800 mb-1">Rp 250.000 <span class="text-base font-medium text-gray-500">/ Bulan</span></p>
-                  <p class="text-sm text-gray-500 mb-4">Harga belum termasuk PPN 11%</p>
-        
-                  <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-xl mb-2 transition">Langganan Sekarang</button>
-                  <button class="w-full border border-gray-300 text-gray-800 py-2 px-4 rounded-xl hover:bg-gray-100 transition">Chat Sales</button>
-        
-                  <hr class="my-4">
-        
-                  <div class="text-left text-sm">
-                    <h4 class="font-semibold text-purple-700 mb-2">Fitur dan Benefit</h4>
-                    <ul class="space-y-2">
-                      <li class="flex items-start gap-2">
-                        <span>📶</span> <span>Internet UNLIMITED</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>📦</span> <span>Include ONT/Modem</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>🎁</span> <span>Gratis Instalasi Rp500.000</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>👨‍👩‍👧‍👦</span> <span>Ideal untuk 1 - 5 Device</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>⚡</span> <span>DL & UL 1:1 up to 50 Mbps</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Pricing Card -->
-            <div class="bg-white rounded-2xl shadow-lg max-w-sm w-full">
-                <img src="media/cardhero1.png" alt="Paket Fast" class="w-full h-48 object-cover rounded-t-2xl">
-                <div class="p-6 text-center">
-                  <h3 class="text-xl font-semibold text-purple-700">Fast</h3>
-                  <p class="text-sm text-gray-500 mb-2">50 Mbps</p>
-                  <p class="text-3xl font-bold text-gray-800 mb-1">Rp 250.000 <span class="text-base font-medium text-gray-500">/ Bulan</span></p>
-                  <p class="text-sm text-gray-500 mb-4">Harga belum termasuk PPN 11%</p>
-        
-                  <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-xl mb-2 transition">Langganan Sekarang</button>
-                  <button class="w-full border border-gray-300 text-gray-800 py-2 px-4 rounded-xl hover:bg-gray-100 transition">Chat Sales</button>
-        
-                  <hr class="my-4">
-        
-                  <div class="text-left text-sm">
-                    <h4 class="font-semibold text-purple-700 mb-2">Fitur dan Benefit</h4>
-                    <ul class="space-y-2">
-                      <li class="flex items-start gap-2">
-                        <span>📶</span> <span>Internet UNLIMITED</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>📦</span> <span>Include ONT/Modem</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>🎁</span> <span>Gratis Instalasi Rp500.000</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>👨‍👩‍👧‍👦</span> <span>Ideal untuk 1 - 5 Device</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>⚡</span> <span>DL & UL 1:1 up to 50 Mbps</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Pricing Card -->
-            <div class="bg-white rounded-2xl shadow-lg max-w-sm w-full">
-                <img src="media/cardhero1.png" alt="Paket Fast" class="w-full h-48 object-cover rounded-t-2xl">
-                <div class="p-6 text-center">
-                  <h3 class="text-xl font-semibold text-purple-700">Fast</h3>
-                  <p class="text-sm text-gray-500 mb-2">50 Mbps</p>
-                  <p class="text-3xl font-bold text-gray-800 mb-1">Rp 250.000 <span class="text-base font-medium text-gray-500">/ Bulan</span></p>
-                  <p class="text-sm text-gray-500 mb-4">Harga belum termasuk PPN 11%</p>
-        
-                  <button class="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold py-2 px-4 rounded-xl mb-2 transition">Langganan Sekarang</button>
-                  <button class="w-full border border-gray-300 text-gray-800 py-2 px-4 rounded-xl hover:bg-gray-100 transition">Chat Sales</button>
-        
-                  <hr class="my-4">
-        
-                  <div class="text-left text-sm">
-                    <h4 class="font-semibold text-purple-700 mb-2">Fitur dan Benefit</h4>
-                    <ul class="space-y-2">
-                      <li class="flex items-start gap-2">
-                        <span>📶</span> <span>Internet UNLIMITED</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>📦</span> <span>Include ONT/Modem</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>🎁</span> <span>Gratis Instalasi Rp500.000</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>👨‍👩‍👧‍👦</span> <span>Ideal untuk 1 - 5 Device</span>
-                      </li>
-                      <li class="flex items-start gap-2">
-                        <span>⚡</span> <span>DL & UL 1:1 up to 50 Mbps</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-      
-          </div>
-        </div>
+            
       </section>
       
 
@@ -322,6 +211,7 @@
     </footer>
 
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -334,6 +224,11 @@
                 mobileMenu.classList.add('hidden');
                 mobileMenu.classList.remove('animate-slide-down');
             }
+        });
+
+        AOS.init({
+    duration: 1000, // durasi animasi (ms)
+    once: true, // animasi hanya muncul sekali
         });
     </script>
 
