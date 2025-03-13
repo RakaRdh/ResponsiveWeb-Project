@@ -30,9 +30,7 @@
             href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
         <style>
-      body {
-        font-family: "Poppins", sans-serif;
-      }
+
 
       .slick-slide {
     display: flex !important;
@@ -52,73 +50,50 @@
     </style>
     </head>
 
-    <body class="bg-gray-100 text-gray-800">
+    <body class="bg-white text-gray-800">
         <!-- NAVBAR -->
-        <nav
-            class="bg-white py-4 px-4 md:px-6 lg:px-8 shadow-md sticky top-0 z-50">
+        <nav class="bg-white py-4 px-4 md:px-6 lg:px-8 shadow-md sticky top-0 z-50">
             <div class="container mx-auto flex items-center justify-between">
-                <a class="navbar-brand text-xl font-bold" href="#">
-                    <img src="media/logo.png" class="h-16 xs:h-10" alt="Logo" />
+              <a class="navbar-brand text-xl font-bold" href="#">
+                <img src="media/logo.png" class="h-5 md:h-10" alt="Logo">
+              </a>
+        
+              <!-- Hamburger Icon (mobile only) -->
+              <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                  </path>
+                </svg>
+              </button>
+        
+              <!-- Desktop Navigation -->
+              <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-500 hover:text-sky-700 transition">Beranda</a>
+                <a href="paket.html" class="text-gray-500 hover:text-sky-700 transition">Paket</a>
+                <a href="kontakkami.html" class="text-gray-500 hover:text-sky-700 transition">Kontak</a>
+                <a href="cekcoverage.html"
+                  class="bg-gradient-to-r from-sky-700 to-teal-500 text-white px-4 py-2 rounded-md hover:opacity-80 transition duration-300">
+                  Cek Coverage
                 </a>
-
-                <!-- Hamburger Icon (mobile only) -->
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <svg
-                        class="w-6 h-6 text-gray-800"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a
-                        href="index.html"
-                        class="text-gray-500 hover:text-sky-700 transition">Beranda</a>
-                    <a href="#"
-                        class="text-gray-500 hover:text-sky-700 transition">Paket</a>
-                    <a href="#"
-                        class="text-gray-500 hover:text-sky-700 transition">Kontak</a>
-                    <a
-                        href="cekcoverage.html"
-                        class="bg-gradient-to-r from-sky-700 to-teal-500 text-white px-4 py-2 rounded-md hover:opacity-90 transition duration-300">
-                        Cek Coverage
-                    </a>
-                </div>
+              </div>
             </div>
-
+        
             <!-- Mobile Navigation (hidden by default) -->
-            <div id="mobile-menu"
-                class="md:hidden hidden px-4 pt-4 pb-6 space-y-3">
-                <a
-                    href="index.html"
-                    class="block text-gray-700 hover:text-sky-700 transition">Beranda</a>
-                <a
-                    href="#"
-                    class="block text-gray-700 hover:text-sky-700 transition">Paket</a>
-                <a
-                    href="#"
-                    class="block text-gray-700 hover:text-sky-700 transition">Kontak</a>
-                <a
-                    href="cekcoverage.html"
-                    class="block text-gray-700 hover:text-sky-700 transition">Cek
-                    Coverage</a>
+            <div id="mobile-menu" class="md:hidden hidden px-4 pt-4 pb-6 space-y-3">
+              <a href="index.html" class="block text-gray-700 hover:text-sky-700 transition">Beranda</a>
+              <a href="paket.html" class="block text-gray-700 hover:text-sky-700 transition">Paket</a>
+              <a href="kontakkami.html" class="block text-gray-700 hover:text-sky-700 transition">Kontak</a>
+              <a href="cekcoverage.html" class="block text-gray-700 hover:text-sky-700 transition">Cek Coverage</a>
             </div>
-        </nav>
+          </nav>
 
         <!-- MAIN CONTENT -->
         <main class="container mx-auto px-4 py-10">
             <!-- Judul -->
             <div class="text-center mb-8">
                 <h2
-                    class="text-3xl md:text-4xl font-bold text-sky-600 mb-2">
+                    class="text-3xl md:text-4xl font-bold text-sky-700 mb-2">
                     Cek Coverage IntraOne
                 </h2>
                 <p class="text-gray-500">Cari tahu apakah jaringan kami sudah
@@ -139,152 +114,110 @@
 
         <!-- SLIDER AREA -->
         <section class="py-10">
-            <div class="container mx-auto px-4">
-                <h3
-                    class="text-center text-2xl font-semibold text-gray-700 mb-6">Partner
-                    Kami</h3>
-
-                <!-- Slick Slider Wrapper -->
-                <div class="brand-active flex items-center">
-                    <!-- Partner Logos -->
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 1"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 2"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 3"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 4"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 5"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 6"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 1"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 2"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 3"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 4"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 5"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 6"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 1"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 2"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 3"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 4"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 5"
-                            class="h-300 mx-auto">
-                    </div>
-                    <div class="single-brand px-4">
-                        <img src="media/hero3.jpg" alt="Partner 6"
-                            class="h-300 mx-auto">
-                    </div>
+            <div class="container mx-auto px-4" data-aos="fade-up" data-aos-delay="0">
+              <h3 class="text-center text-2xl font-semibold text-gray-700 mb-12">Partner
+                Kami</h3>
+        
+              <!-- Slick Slider Wrapper -->
+              <div class="brand-active flex items-center">
+                <!-- Partner Logos -->
+                <div class="single-brand px-4">
+                  <img src="media/partner1.png" alt="Partner 1" class="h-300 mx-auto">
                 </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner2.png" alt="Partner 2" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner3.png" alt="Partner 3" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner4.png" alt="Partner 4" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner5.png" alt="Partner 5" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner6.png" alt="Partner 6" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner1.png" alt="Partner 1" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner2.png" alt="Partner 2" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner3.png" alt="Partner 3" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner4.png" alt="Partner 4" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner5.png" alt="Partner 5" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner6.png" alt="Partner 6" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner1.png" alt="Partner 1" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner2.png" alt="Partner 2" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner3.png" alt="Partner 3" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner4.png" alt="Partner 4" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner5.png" alt="Partner 5" class="h-300 mx-auto">
+                </div>
+                <div class="single-brand px-4">
+                  <img src="media/partner6.png" alt="Partner 6" class="h-300 mx-auto">
+                </div>
+              </div>
             </div>
-        </section>
+          </section>
 
         <!-- FOOTER -->
+
 <!-- MODERN FOOTER -->
-<!-- MODERN FOOTER -->
-<footer class="bg-gray-900 text-gray-300 py-10">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-start">
-      <!-- Branding & Deskripsi -->
-      <div class="mb-6 md:mb-0">
-        <a href="#" class="text-2xl font-bold text-white">IntraOne</a>
-        <p class="mt-2 text-sm">
-          Solusi koneksi internet cepat dan andal untuk mendukung aktivitas digital Anda.
-        </p>
+<footer class="bg-slate-100 text-gray-800 py-16">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start space-y-12 md:space-y-0">
+      <div class="flex flex-col space-y-6 md:w-1/3">
+        <a href="#">
+          <img src="media/logo.png" class="h-5 md:h-10" alt="Logo" />
+        </a>
+        <p class="text-sm text-gray-500">Solusi Integrasi Digital Terdepan</p>
       </div>
-      <!-- Navigasi -->
-      <div class="mb-6 md:mb-0">
-        <h4 class="font-semibold text-white mb-2">Navigasi</h4>
-        <ul>
-          <li><a href="#" class="hover:text-white transition">Beranda</a></li>
-          <li><a href="#" class="hover:text-white transition">Paket</a></li>
-          <li><a href="#" class="hover:text-white transition">Kontak</a></li>
-          <li><a href="cekcoverage.html" class="hover:text-white transition">Cek Coverage</a></li>
-        </ul>
-      </div>
-      <!-- Kontak & Sosial Media -->
-      <div>
-        <h4 class="font-semibold text-white mb-2">Kontak Kami</h4>
-        <p class="text-sm">Jl. Teknologi No. 123, Kota Digital</p>
-        <p class="text-sm">Email: support@intraone.com</p>
-        <p class="text-sm">Telepon: (021) 12345678</p>
-        <!-- Social Media Icons -->
-        <div class="mt-4">
-          <h4 class="font-semibold text-white mb-2">Follow Us</h4>
-          <div class="flex space-x-4">
-            <!-- Facebook -->
-            <a href="#" aria-label="Facebook" class="hover:scale-110 transition transform">
-              <svg class="w-6 h-6" fill="#3b5998" viewBox="0 0 24 24">
-                <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.466.099 2.798.143v3.24l-1.92.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.407 24 24 23.407 24 22.676V1.325C24 .593 23.407 0 22.675 0z"/>
-              </svg>
-            </a>
-            <!-- Twitter -->
-            <a href="#" aria-label="Twitter" class="hover:scale-110 transition transform">
-              <svg class="w-6 h-6" fill="#1DA1F2" viewBox="0 0 24 24">
-                <path d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 0 0-.666 2.475 4.917 4.917 0 0 0 2.188 4.1 4.903 4.903 0 0 1-2.228-.616v.06a4.919 4.919 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.224.085 4.92 4.92 0 0 0 4.6 3.417A9.867 9.867 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646A9.935 9.935 0 0 0 24 4.557z"/>
-              </svg>
-            </a>
-            <!-- Instagram -->
-            <a href="#" aria-label="Instagram" class="hover:scale-110 transition transform">
-              <svg class="w-6 h-6" fill="#E1306C" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.316.975.975 1.254 2.242 1.316 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.341 2.633-1.316 3.608-.975.975-2.242 1.254-3.608 1.316-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.341-3.608-1.316-.975-.975-1.254-2.242-1.316-3.608C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.062-1.366.341-2.633 1.316-3.608C4.524 2.504 5.791 2.225 7.157 2.163 8.423 2.105 8.803 2.093 12 2.093zm0-2.163C8.741 0 8.332.012 7.052.07 5.772.128 4.634.427 3.678 1.383 2.722 2.339 2.423 3.477 2.365 4.757.012 8.332 0 8.741 0 12c0 3.259.012 3.668.07 4.948.058 1.28.357 2.418 1.313 3.374.956.956 2.094 1.255 3.374 1.313C8.332 23.988 8.741 24 12 24s3.668-.012 4.948-.07c1.28-.058 2.418-.357 3.374-1.313.956-.956 1.255-2.094 1.313-3.374.058-1.28.07-1.689.07-4.948s-.012-3.668-.07-4.948c-.058-1.28-.357-2.418-1.313-3.374C19.366.427 18.228.128 16.948.07 15.668.012 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/>
-              </svg>
-            </a>
-            <!-- LinkedIn -->
-            <a href="#" aria-label="LinkedIn" class="hover:scale-110 transition transform">
-              <svg class="w-6 h-6" fill="#0077B5" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.024-3.039-1.852-3.039-1.853 0-2.137 1.445-2.137 2.939v5.669H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.372-1.852 3.606 0 4.271 2.373 4.271 5.456v6.287zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.225.792 24 1.771 24h20.451C23.207 24 24 23.225 24 22.271V1.729C24 .774 23.207 0 22.225 0z"/>
-              </svg>
-            </a>
-          </div>
+      <div class="flex flex-col space-y-4 md:w-1/3">
+        <h4 class="font-semibold text-sky-700 text-lg">Informasi Kontak</h4>
+        <div class="text-base space-y-1">
+          <p><span class="font-semibold">Head Office</span></p>
+          <p>Grand Plaza Bekasi</p>
+          <p>Jl. Mayor Matthew No. 63</p>
+          <p>Bekasi Timur - Bekasi 169420</p>
+        </div>
+        <div class="flex space-x-4 mt-4">
+          <a href="tel:+622150919981" aria-label="Telepon"
+            class="w-10 h-10 rounded-full bg-sky-600 flex items-center justify-center hover:bg-sky-700 transition">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.52 22 2 13.48 2 3.5a1 1 0 011-1H6.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z" />
+            </svg>
+          </a>
         </div>
       </div>
+      <div class="flex flex-col md:w-1/3">
+        <h4 class="font-semibold text-sky-700 text-lg">Kantor Cabang Kami</h4>
+        <p class="text-base mt-4 leading-relaxed">Depok | Bogor | Bekasi</p>
+      </div>
     </div>
-    <div class="mt-8 border-t border-gray-700 pt-4 text-center">
-      <p class="text-sm">&copy; 2025 IntraOne. All rights reserved.</p>
+    <div
+      class="mt-12 border-t border-gray-300 pt-6 text-center text-sm text-gray-600 flex flex-col space-y-2 md:flex-row md:justify-center md:space-y-0 md:space-x-4">
+      <p>&copy; 2025 IntraOne. All rights reserved.</p>
+      <a href="kebijakanprivasi.html" class="text-indigo-600 hover:underline">Kebijakan Privasi</a>
+      <a href="persyaratanlayanan.html" class="text-indigo-600 hover:underline">Persyaratan Layanan</a>
     </div>
   </footer>
   
