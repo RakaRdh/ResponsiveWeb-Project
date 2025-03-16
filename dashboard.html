@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Pelanggan - IntraOne</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .glass:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .btn-gradient {
+      background: linear-gradient(to right, #0ea5e9, #06b6d4);
+      color: #fff;
+    }
+    .btn-gradient:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-sky-900 px-4 py-3 fixed w-full z-50 shadow-lg">
+    <div class="container">
+      <a class="navbar-brand font-bold text-xl" href="#">IntraOne</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-4">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#subscriptions">Langganan</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#history">Riwayat</a>
+          </li>
+          <li class="nav-item">
+            <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-28 pb-16 px-4">
+    <div class="container">
+      <div class="glass p-8 md:p-12 text-center mx-auto max-w-5xl rounded-3xl" data-aos="fade-up">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Selamat Datang, <span id="userName">Pelanggan</span>!</h2>
+        <p class="text-lg text-slate-300">Kelola langganan internetmu dengan mudah dari sini.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section class="pb-16">
+    <div class="container grid gap-8 px-4 lg:grid-cols-3">
+      <!-- Langganan Aktif -->
+      <div class="glass p-6 rounded-xl col-span-2 flex flex-col justify-between md:flex-row lg:flex-col" data-aos="fade-right">
+        <div class="flex-1 mb-4">
+          <h3 class="text-2xl font-semibold mb-6">Langganan Aktif</h3>
+          <div class="grid gap-4">
+            <div class="p-6 border border-sky-500 rounded-lg shadow-md flex flex-col gap-2
+              bg-gradient-to-r from-sky-800 to-sky-900
+              md:flex-row md:justify-between md:items-center
+              lg:flex-col lg:items-start
+              hover:scale-105 transition-transform">
+              <div>
+                <p class="text-xl font-bold">Paket: <span id="paketInternet">-</span></p>
+                <p>Durasi: <span id="durasiBerlangganan">-</span> Bulan</p>
+                <p>Total Harga: <span id="totalHarga">-</span></p>
+                <p>Status: <span class="text-green-400 font-semibold">Aktif</span></p>
+              </div>
+              <div class="flex gap-2 mt-4 md:mt-0 lg:mt-4">
+                <button class="bg-emerald-600 px-4 py-2 rounded-lg text-sm text-white hover:opacity-80" onclick="bukaModalPerpanjang()">Perpanjang</button>
+                <button class="btn-gradient px-4 py-2 rounded-lg text-sm" onclick="bukaModalUpgrade()">Upgrade</button>
+                <button class="bg-red-600 px-4 py-2 rounded-lg text-sm text-white hover:opacity-80" onclick="batalkanPaket()">Batalkan</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifikasi -->
+      <div class="glass p-6 rounded-xl" data-aos="fade-left">
+        <h3 class="text-2xl font-semibold mb-6">Notifikasi</h3>
+        <ul class="space-y-4 text-sm text-slate-300">
+          <li class="p-4 bg-sky-800/40 rounded-lg">✅ Paket aktif hingga 10 April 2025</li>
+          <li class="p-4 bg-sky-800/40 rounded-lg">⚡ Promo upgrade 50 Mbps diskon 10%</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Riwayat Pembayaran -->
+    <div class="container px-4 mt-12">
+      <div class="glass p-6 rounded-xl" data-aos="fade-up">
+        <h3 class="text-2xl font-semibold mb-6">Riwayat Pembayaran</h3>
+        <div class="overflow-x-auto">
+          <table class="table table-dark table-striped text-sm w-full">
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Paket</th>
+                <th>Durasi</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="historyTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-slate-400 text-xs py-6 mt-16">
+    &copy; 2025 IntraOne. All Rights Reserved.
+  </footer>
+
+  <!-- Modal Konfirmasi Perpanjang -->
+<div class="modal fade" id="perpanjangModal" tabindex="-1" aria-labelledby="perpanjangModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" data-aos="zoom-in">
+      <div class="modal-content glass border border-sky-700 shadow-lg">
+        <div class="modal-header bg-sky-900 text-white rounded-t-2xl">
+          <h5 class="modal-title font-semibold" id="perpanjangModalLabel">Konfirmasi Perpanjang</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-slate-300">
+          <p class="text-center text-lg mb-3">Apakah Anda yakin ingin memperpanjang langganan paket <span class="text-sky-400 font-medium" id="paketKonfirmasiPerpanjang">...</span>?</p>
+          <p class="text-center text-sm text-slate-400">Durasi: <span id="durasiKonfirmasiPerpanjang"> Bulan</span></p>
+          <p class="text-center text-sm text-slate-400 mb-4">Harga: Rp <span id="hargaKonfirmasiPerpanjang"></span></p>
+        </div>
+        <div class="modal-footer flex justify-center gap-3">
+          <button type="button" class="btn btn-secondary px-4 py-2 rounded-lg" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn-gradient px-4 py-2 rounded-lg" onclick="prosesPerpanjang()">Lanjutkan Pembayaran</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="upgradeModal" tabindex="-1" aria-labelledby="upgradeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" data-aos="zoom-in">
+      <div class="modal-content glass border border-sky-700 shadow-lg">
+        <div class="modal-header bg-sky-900 text-white rounded-t-2xl">
+          <h5 class="modal-title font-semibold" id="upgradeModalLabel">Konfirmasi Perpanjang</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-slate-300">
+          <p class="text-center text-lg mb-3">Apakah Anda yakin ingin upgrade langganan paket <span class="text-sky-400 font-medium" id="paketKonfirmasiUpgrade">...</span>?</p>
+          <p class="text-center text-sm text-slate-400">Durasi: <span id="durasiKonfirmasiUpgrade"></span> Bulan</p>
+          <p class="text-center text-sm text-slate-400 mb-4">Harga: Rp <span id="hargaKonfirmasiUpgrade"></span></p>
+        </div>
+        <div class="modal-footer flex justify-center gap-3">
+          <button type="button" class="btn btn-secondary px-4 py-2 rounded-lg" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn-gradient px-4 py-2 rounded-lg" onclick="prosesUpgrade()">Lanjutkan Upgrade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Konfirmasi Batalkan -->
+<div class="modal fade" id="batalkanModal" tabindex="-1" aria-labelledby="batalkanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" data-aos="zoom-in">
+      <div class="modal-content glass border border-red-700 shadow-lg">
+        <div class="modal-header bg-red-900 text-white rounded-t-2xl">
+          <h5 class="modal-title font-semibold" id="batalkanModalLabel">Konfirmasi Pembatalan</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center text-slate-300">
+          <p class="text-lg mb-3">Apakah Anda yakin ingin membatalkan langganan <span class="text-red-400 font-medium" id="paketBatalkan">...</span> dan menghapus akun?</p>
+          <p class="text-sm text-slate-400">Tindakan ini tidak dapat dibatalkan.</p>
+        </div>
+        <div class="modal-footer flex justify-center gap-3">
+          <button type="button" class="btn btn-secondary px-4 py-2 rounded-lg" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:opacity-80" onclick="prosesBatalkan()">Ya, Batalkan & Hapus Akun</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <!-- Bootstrap + AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init({ duration: 1000 });
+
+    const daftarPelanggan = JSON.parse(localStorage.getItem('daftarPelanggan')) || [];
+    const loggedInEmail = localStorage.getItem('userEmail');
+    const loggedInPhone = localStorage.getItem('userPhone');
+
+    const user = daftarPelanggan.find(item => item.email === loggedInEmail && item.noHP === loggedInPhone);
+
+    if (!user) {
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('userName').textContent = user.nama;
+      document.getElementById('paketInternet').textContent = user.paketInternet;
+      document.getElementById('durasiBerlangganan').textContent = user.durasiBerlangganan;
+      document.getElementById('totalHarga').textContent = user.totalHarga;
+
+      const historyTable = document.getElementById('historyTable');
+      const dummyHistory = [
+        { tanggal: '10 Maret 2025', paket: user.paketInternet, durasi: user.durasiBerlangganan, total: user.totalHarga },
+        { tanggal: '10 Februari 2025', paket: user.paketInternet, durasi: user.durasiBerlangganan, total: user.totalHarga }
+      ];
+
+      dummyHistory.forEach(entry => {
+        const row = `<tr>
+                      <td>${entry.tanggal}</td>
+                      <td>${entry.paket}</td>
+                      <td>${entry.durasi}</td>
+                      <td>Rp ${entry.total}</td>
+                    </tr>`;
+        historyTable.innerHTML += row;
+      });
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('userPhone');
+      window.location.href = 'login.html';
+    });
+
+// Buka modal dan isi datanya
+function bukaModalPerpanjang() {
+  // Pakai variabel user yang sudah ada
+  document.getElementById('paketKonfirmasiPerpanjang').textContent = user.paketInternet;
+  document.getElementById('durasiKonfirmasiPerpanjang').textContent = user.durasiBerlangganan;
+  document.getElementById('hargaKonfirmasiPerpanjang').textContent = user.totalHarga;
+
+  // Buka modal Bootstrap
+  const perpanjangModal = new bootstrap.Modal(document.getElementById('perpanjangModal'));
+  perpanjangModal.show();
+}
+
+
+// Lanjutkan ke halaman pembayaran
+function prosesPerpanjang() {
+  // Simpan data ke localStorage buat halaman pembayaran
+  localStorage.setItem('perpanjangData', JSON.stringify({
+    paket: user.paketInternet,
+    durasi: user.durasiBerlangganan,
+    harga: user.totalHarga
+  }));
+
+  window.location.href = 'payment.html';
+}
+
+
+function bukaModalUpgrade() {
+  // Pakai variabel user yang sudah ada
+  document.getElementById('paketKonfirmasiUpgrade').textContent = user.paketInternet;
+  document.getElementById('durasiKonfirmasiUpgrade').textContent = user.durasiBerlangganan;
+  document.getElementById('hargaKonfirmasiUpgrade').textContent = user.totalHarga;
+
+  // Buka modal Bootstrap
+  const upgradeModal = new bootstrap.Modal(document.getElementById('upgradeModal'));
+  upgradeModal.show();
+}
+
+function prosesUpgrade() {
+  // Simpan data user ke localStorage (opsional, kalau mau diambil di halaman upgrade)
+  localStorage.setItem('upgradeData', JSON.stringify({
+    paket: user.paketInternet,
+    durasi: user.durasiBerlangganan,
+    harga: user.totalHarga
+  }));
+
+  // Redirect ke halaman upgrade
+  window.location.href = 'upgradepaket.html';
+}
+
+function batalkanPaket() {
+  // Isi info paket di modal
+  document.getElementById('paketBatalkan').textContent = user.paketInternet;
+
+  // Buka modal Bootstrap
+  const batalkanModal = new bootstrap.Modal(document.getElementById('batalkanModal'));
+  batalkanModal.show();
+}
+
+function prosesBatalkan() {
+  // Ambil daftar pelanggan
+  let daftarPelanggan = JSON.parse(localStorage.getItem('daftarPelanggan')) || [];
+
+  // Filter user yg lain, buang user yang login sekarang
+  daftarPelanggan = daftarPelanggan.filter(item => item.email !== loggedInEmail || item.noHP !== loggedInPhone);
+
+  // Simpan daftar baru (user dihapus)
+  localStorage.setItem('daftarPelanggan', JSON.stringify(daftarPelanggan));
+
+  // Hapus data login
+  localStorage.removeItem('userEmail');
+  localStorage.removeItem('userPhone');
+
+  // Arahkan ke halaman login
+  window.location.href = 'login.html';
+}
+
+  </script>
+
+</body>
+</html>

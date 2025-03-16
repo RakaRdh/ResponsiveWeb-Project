@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pembayaran Langganan - IntraOne</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .btn-gradient {
+      background: linear-gradient(to right, #0ea5e9, #06b6d4);
+      color: #fff;
+    }
+    .btn-gradient:hover {
+      opacity: 0.85;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-sky-900 px-4 py-3 fixed w-full z-50 shadow-lg">
+    <div class="container">
+      <a class="navbar-brand font-bold text-xl" href="#">IntraOne</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-4">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="dashboard.html">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-28 pb-16 px-4">
+    <div class="container">
+      <div class="glass p-8 md:p-12 text-center mx-auto max-w-4xl rounded-3xl" data-aos="fade-up">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Pembayaran Perpanjangan</h2>
+        <p class="text-lg text-slate-300">Perpanjang langganan internetmu sekarang!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Section -->
+  <section class="pb-16">
+    <div class="container px-4 flex justify-center">
+      <div class="glass p-8 rounded-3xl max-w-2xl w-full" data-aos="fade-up">
+        <h3 class="text-2xl font-semibold mb-6 text-center">Detail Perpanjangan</h3>
+
+        <div class="space-y-4 text-sm">
+          <p><strong>Paket:</strong> <span id="paket">-</span></p>
+          <p><strong>Durasi:</strong> <span id="durasi">-</span> Bulan</p>
+          <p><strong>Harga:</strong><span id="harga">-</span></p>
+        </div>
+
+        <hr class="my-6 border-sky-700">
+
+        <!-- Metode Pembayaran -->
+        <h4 class="text-xl mb-4">Pilih Metode Pembayaran</h4>
+        <div class="space-y-3">
+          <button class="btn btn-outline-light w-full py-2">Transfer Bank</button>
+          <button class="btn btn-outline-light w-full py-2">QRIS</button>
+          <button class="btn btn-outline-light w-full py-2">E-Wallet</button>
+        </div>
+
+        <button class="btn-gradient w-full mt-6 py-3 rounded-xl" onclick="bayarSekarang()">Bayar Sekarang</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-slate-400 text-xs py-6 mt-16">
+    &copy; 2025 IntraOne. All Rights Reserved.
+  </footer>
+
+  <!-- Bootstrap + AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init({ duration: 1000 });
+
+    const perpanjangData = JSON.parse(localStorage.getItem('perpanjangData'));
+
+    if (!perpanjangData) {
+      alert('Data tidak ditemukan! Kembali ke Dashboard.');
+      window.location.href = 'dashboard.html';
+    } else {
+      document.getElementById('paket').textContent = perpanjangData.paket;
+      document.getElementById('durasi').textContent = perpanjangData.durasi;
+      document.getElementById('harga').textContent = perpanjangData.harga;
+    }
+
+    function bayarSekarang() {
+      alert('Pembayaran berhasil! Langganan diperpanjang.');
+      // Hapus data pembayaran
+      localStorage.removeItem('perpanjangData');
+      // Redirect ke dashboard
+      window.location.href = 'dashboard.html';
+    }
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('userEmail');
+      localStorage.removeItem('userPhone');
+      window.location.href = 'login.html';
+    });
+  </script>
+
+</body>
+</html>
