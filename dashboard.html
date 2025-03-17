@@ -211,6 +211,7 @@
     AOS.init({ duration: 1000 });
 
     const daftarPelanggan = JSON.parse(localStorage.getItem('daftarPelanggan')) || [];
+    document.writeln(daftarPelanggan);
     const loggedInEmail = localStorage.getItem('userEmail');
     const loggedInPhone = localStorage.getItem('userPhone');
 
