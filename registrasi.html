@@ -11,11 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #e0f7fa, #e0f2f1);
-    }
-
     input:focus,
     textarea:focus,
     select:focus {
@@ -32,10 +27,17 @@
       -webkit-backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.18);
     }
+
+    select:disabled {
+      background-color: #f1f1f1;
+      color: #9ca3af;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
   </style>
 </head>
 
-<body class="text-gray-800">
+<body class="bg-white text-gray-800">
 
   <!-- Bagian NAVBAR -->
   <nav class="bg-white py-4 px-4 md:px-6 lg:px-8 shadow-md sticky top-0 z-50">
@@ -55,9 +57,10 @@
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-6">
-        <a href="index.html" class="text-sky-700 font-semibold">Beranda</a>
+        <a href="index.html" class="text-gray-500 hover:text-sky-700 transition">Beranda</a>
         <a href="paket.html" class="text-gray-500 hover:text-sky-700 transition">Paket</a>
         <a href="kontakkami.html" class="text-gray-500 hover:text-sky-700 transition">Kontak</a>
+        <a href="login.html" class="text-gray-500 hover:text-sky-700 transition">Pembayaran</a>
         <a href="cekcoverage.html"
           class="bg-gradient-to-r from-sky-700 to-teal-500 text-white px-4 py-2 rounded-md hover:opacity-80 transition duration-300">
           Cek Coverage
@@ -70,6 +73,7 @@
       <a href="index.html" class="block text-gray-700 hover:text-sky-700 transition">Beranda</a>
       <a href="paket.html" class="block text-gray-700 hover:text-sky-700 transition">Paket</a>
       <a href="kontakkami.html" class="block text-gray-700 hover:text-sky-700 transition">Kontak</a>
+      <a href="login.html" class="block text-gray-700 hover:text-sky-700 transition">Pembayaran</a>
       <a href="cekcoverage.html" class="block text-gray-700 hover:text-sky-700 transition">Cek Coverage</a>
     </div>
   </nav>
@@ -84,7 +88,7 @@
   </section>
 
   <!-- Form Section -->
-  <section class="py-16 px-4 bg-sky-50">
+  <section class="py-16 px-4">
     <div class="max-w-5xl mx-auto glass-effect p-10 md:p-16 rounded-xl shadow-2xl" data-aos="fade-up">
       <h2 class="text-3xl font-bold text-sky-700 mb-10 text-center">Isi Data Pelanggan</h2>
       <form id="formPendaftaran" class="space-y-8">
@@ -92,25 +96,25 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="block mb-2 font-semibold">Nama Lengkap</label>
-            <input type="text" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"
-              placeholder="Masukkan nama Anda" required />
+            <input type="text" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80"
+              placeholder="Masukkan nama Anda" />
           </div>
           <div>
             <label class="block mb-2 font-semibold">Nomor HP</label>
-            <input type="tel" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"
-              placeholder="08xxxxxxxxxx" required />
+            <input type="tel" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80"
+              placeholder="08xxxxxxxxxx" />
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="block mb-2 font-semibold">Nomor HP Alternatif</label>
-            <input type="tel" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"
+            <input type="tel" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80"
               placeholder="08xxxxxxxxxx" />
           </div>
           <div>
             <label class="block mb-2 font-semibold">Nomor Telepon Rumah</label>
-            <input type="tel" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"
+            <input type="tel" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80"
               placeholder="021xxxxxxx" />
           </div>
         </div>
@@ -118,25 +122,25 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="block mb-2 font-semibold">Tempat Lahir</label>
-            <input type="text" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"
-              placeholder="Masukkan tempat lahir" required />
+            <input type="text" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80"
+              placeholder="Masukkan tempat lahir" />
           </div>
           <div>
             <label class="block mb-2 font-semibold">Tanggal Lahir</label>
-            <input type="date" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80" required />
+            <input type="date" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80" />
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="block mb-2 font-semibold">Email</label>
-            <input type="email" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"
-              placeholder="email@domain.com" required />
+            <input type="email" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80"
+              placeholder="email@domain.com" />
           </div>
           <div>
             <label class="block mb-2 font-semibold">Nomor KTP</label>
-            <input type="text" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"
-              placeholder="Masukkan nomor KTP" required />
+            <input type="text" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80"
+              placeholder="Masukkan nomor KTP" />
           </div>
         </div>
 
@@ -144,14 +148,15 @@
         <h2 class="text-2xl font-bold text-sky-700 mt-10 mb-6 text-center">Alamat Pemasangan</h2>
         <div>
           <label class="block mb-2 font-semibold">Alamat Lengkap</label>
-          <textarea class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80" rows="3"
-            placeholder="Jalan, RT/RW, Kelurahan, Kecamatan" required></textarea>
+          <textarea class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80" rows="3"
+            placeholder="Jalan, RT/RW, Kelurahan, Kecamatan"></textarea>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="block mb-2 font-semibold">Kota</label>
-            <select id="kota" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80">
+            <select id="kota" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80">
+              <option value="default">-- Pilih Kota --</option>
               <option value="Depok">Depok</option>
               <option value="Bogor">Bogor</option>
               <option value="Bekasi">Bekasi</option>
@@ -159,7 +164,7 @@
           </div>
           <div>
             <label class="block mb-2 font-semibold">Kecamatan</label>
-            <select id="kecamatan" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80"></select>
+            <select id="kecamatan" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80 "></select>
           </div>
         </div>
 
@@ -168,8 +173,8 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label class="block mb-2 font-semibold">Kategori Paket</label>
-            <select id="kategoriPaket" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80" required>
-              <option value="">-- Pilih Kategori --</option>
+            <select id="kategoriPaket" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80">
+              <option value="default">-- Pilih Kategori --</option>
               <option value="Reguler">Reguler</option>
               <option value="Gamer">Gamer</option>
               <option value="Bisnis">Bisnis</option>
@@ -177,14 +182,14 @@
           </div>
           <div>
             <label class="block mb-2 font-semibold">Paket Internet</label>
-            <select id="paketInternet" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80" required>
+            <select id="paketInternet" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80">
             </select>
           </div>
         </div>
 
         <div>
           <label class="block mb-2 font-semibold">Durasi Berlangganan</label>
-          <select id="durasiBerlangganan" class="w-full border rounded-md px-5 py-4 bg-white bg-opacity-80" required>
+          <select id="durasiBerlangganan" class="w-full border rounded-md px-4 py-4 bg-white bg-opacity-80">
             <option value="1">1 Bulan</option>
             <option value="3">3 Bulan</option>
             <option value="6">6 Bulan</option>
@@ -250,16 +255,23 @@
         <p><strong>Paket Internet:</strong> <span id="confirmPaket"></span></p>
       </div>
       <div class="mt-6 flex justify-end">
-        <button id="lanjutkanRegistrasi" class="bg-gradient-to-r from-sky-600 to-teal-500 hover:opacity-80 text-white px-4 py-2 rounded">Lanjutkan Registrasi</button>
+        <button id="lanjutkanRegistrasi"
+          class="bg-gradient-to-r from-sky-600 to-teal-500 hover:opacity-80 text-white px-4 py-2 rounded">Lanjutkan
+          Registrasi</button>
       </div>
     </div>
   </div>
-  
+
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 1000, once: true });
+
+    $(document).ready(function () {
+      $("#kecamatan").prop("disabled", true);
+      $("#paketInternet").prop("disabled", true);
+    });
 
     const kecamatanData = {
       Depok: ["Beji", "Cimanggis", "Pancoran Mas"],
@@ -269,14 +281,17 @@
 
     $("#kota").on("change", function () {
       const kota = $(this).val();
-      const kecamatanList = kecamatanData[kota] || [];
       const kecamatanSelect = $("#kecamatan");
-      kecamatanSelect.empty();
-      kecamatanList.forEach((kecamatan) => {
-        kecamatanSelect.append(
-          `<option value="${kecamatan}">${kecamatan}</option>`
-        );
-      });
+
+      if (kota === "default") {
+        kecamatanSelect.empty().prop("disabled", true);
+      } else {
+        const kecamatanList = kecamatanData[kota] || [];
+        kecamatanSelect.empty().prop("disabled", false);
+        kecamatanList.forEach((kecamatan) => {
+          kecamatanSelect.append(`<option value="${kecamatan}">${kecamatan}</option>`);
+        });
+      }
     });
 
     const paketOptions = {
@@ -312,123 +327,138 @@
     $("#kategoriPaket").on("change", function () {
       const kategori = $(this).val();
       const paketSelect = $("#paketInternet");
-      paketSelect.empty().append('<option value="">-- Pilih Paket --</option>');
 
-      if (paketOptions[kategori]) {
-        paketOptions[kategori].forEach((paket) => {
-          paketSelect.append(
-            `<option data-harga="${paket.harga}" value="${paket.name}">${paket.name}</option>`
-          );
+      if (kategori === "default") {
+        paketSelect.empty().prop("disabled", true);
+      } else {
+        const paketList = paketOptions[kategori] || [];
+        paketSelect.empty().prop("disabled", false);
+        paketList.forEach((paket) => {
+          paketSelect.append(`<option data-harga="${paket.harga}" value="${paket.name}">${paket.name}</option>`);
         });
       }
     });
 
     $("#paketInternet, #durasiBerlangganan").on("change", updateHarga);
 
-    document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("formPendaftaran");
-    const modal = document.getElementById("modalKonfirmasi");
-    const btnLanjutkan = document.getElementById("lanjutkanRegistrasi");
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("formPendaftaran");
+      const modal = document.getElementById("modalKonfirmasi");
+      const btnLanjutkan = document.getElementById("lanjutkanRegistrasi");
 
-    if (!form) return;
+      if (!form) return;
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-      let isValid = true;
-      let messages = [];
+        let isValid = true;
+        let messages = [];
+        let firstInvalidField = null; // ⬅️ Tambahan penting!
 
-      const nama = form.querySelector("input[type='text']");
-      const nomorHP = form.querySelector("input[type='tel']");
-      const email = form.querySelector("input[type='email']");
-      const ktp = form.querySelector("input[placeholder='Masukkan nomor KTP']");
-      const alamat = form.querySelector("textarea");
-      const paket = form.querySelector("#paketInternet");
+        const nama = form.querySelector("input[placeholder='Masukkan nama Anda']");
+        const nomorHP = form.querySelector("input[placeholder='08xxxxxxxxxx']");
+        const email = form.querySelector("input[type='email']");
+        const ktp = form.querySelector("input[placeholder='Masukkan nomor KTP']");
+        const alamat = form.querySelector("textarea");
+        const kecamatan = form.querySelector("#kecamatan");
+        const paket = form.querySelector("#paketInternet");
 
-      if (nama.value.trim() === "") {
-        isValid = false;
-        messages.push("Nama tidak boleh kosong.");
-      }
-      if (!/^\d{10,13}$/.test(nomorHP.value.trim())) {
-        isValid = false;
-        messages.push("Nomor HP harus terdiri dari 10-13 digit angka.");
-      }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-        isValid = false;
-        messages.push("Format email tidak valid.");
-      }
-      if (!/^\d{16}$/.test(ktp.value.trim())) {
-        isValid = false;
-        messages.push("Nomor KTP harus 16 digit angka.");
-      }
-      if (alamat.value.trim() === "") {
-        isValid = false;
-        messages.push("Alamat lengkap wajib diisi.");
-      }
-      if (!paket.value) {
-        isValid = false;
-        messages.push("Silakan pilih paket internet.");
-      }
+        if (nama.value.trim() === "") {
+          isValid = false;
+          messages.push("Nama tidak boleh kosong.");
+          if (!firstInvalidField) firstInvalidField = nama;
+        }
+        if (!/^\d{10,13}$/.test(nomorHP.value.trim())) {
+          isValid = false;
+          messages.push("Nomor HP harus terdiri dari 10-13 digit angka.");
+          if (!firstInvalidField) firstInvalidField = nomorHP;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+          isValid = false;
+          messages.push("Format email tidak valid.");
+          if (!firstInvalidField) firstInvalidField = email;
+        }
+        if (!/^\d{16}$/.test(ktp.value.trim())) {
+          isValid = false;
+          messages.push("Nomor KTP harus 16 digit angka.");
+          if (!firstInvalidField) firstInvalidField = ktp;
+        }
+        if (alamat.value.trim() === "") {
+          isValid = false;
+          messages.push("Alamat lengkap wajib diisi.");
+          if (!firstInvalidField) firstInvalidField = alamat;
+        }
+        if (kecamatan.disabled || !kecamatan.value) {
+          isValid = false;
+          messages.push("Silakan pilih kecamatan.");
+          if (!firstInvalidField) firstInvalidField = kecamatan[0]; // jQuery to native
+        }
+        if (paket.disabled || !paket.value) {
+          isValid = false;
+          messages.push("Silakan pilih paket internet.");
+          if (!firstInvalidField) firstInvalidField = paket[0];
+        }
 
-      if (!isValid) {
-        alert(messages.join("\n"));
-        return;
-      }
+        if (!isValid) {
+          alert(messages.join("\n"));
+          firstInvalidField.focus(); // ✅ fokus ke field pertama yang gagal
+          return;
+        }
 
-      const formData = {
-      nama: $("input[placeholder='Masukkan nama Anda']").val(),
-      noHP: $("input[placeholder='08xxxxxxxxxx']").first().val(),
-      noHPAlternatif: $("input[placeholder='08xxxxxxxxxx']").last().val(),
-      noTeleponRumah: $("input[placeholder='021xxxxxxx']").val(),
-      tempatLahir: $("input[placeholder='Masukkan tempat lahir']").val(),
-      tanggalLahir: $("input[type='date']").val(),
-      email: $("input[type='email']").val(),
-      noKTP: $("input[placeholder='Masukkan nomor KTP']").val(),
-      alamat: $("textarea").val(),
-      kota: $("#kota").val(),
-      kecamatan: $("#kecamatan").val(),
-      kategoriPaket: $("#kategoriPaket").val(),
-      paketInternet: $("#paketInternet").val(),
-      durasiBerlangganan: $("#durasiBerlangganan").val(),
-      hargaPaket: $("#hargaPaket").text(),
-      biayaAdmin: $("#biayaAdmin").text(),
-      ppn: $("#ppn").text(),
-      totalHarga: $("#totalHarga").text(),
-    };
+        const formData = {
+          nama: $("input[placeholder='Masukkan nama Anda']").val(),
+          noHP: $("input[placeholder='08xxxxxxxxxx']").first().val(),
+          noHPAlternatif: $("input[placeholder='08xxxxxxxxxx']").last().val(),
+          noTeleponRumah: $("input[placeholder='021xxxxxxx']").val(),
+          tempatLahir: $("input[placeholder='Masukkan tempat lahir']").val(),
+          tanggalLahir: $("input[type='date']").val(),
+          email: $("input[type='email']").val(),
+          noKTP: $("input[placeholder='Masukkan nomor KTP']").val(),
+          alamat: $("textarea").val(),
+          kota: $("#kota").val(),
+          kecamatan: $("#kecamatan").val(),
+          kategoriPaket: $("#kategoriPaket").val(),
+          paketInternet: $("#paketInternet").val(),
+          durasiBerlangganan: $("#durasiBerlangganan").val(),
+          hargaPaket: $("#hargaPaket").text(),
+          biayaAdmin: $("#biayaAdmin").text(),
+          ppn: $("#ppn").text(),
+          totalHarga: $("#totalHarga").text(),
+        };
 
-    // Simpan ke localStorage
-    let daftarPelanggan = JSON.parse(localStorage.getItem("daftarPelanggan")) || [];
-    daftarPelanggan.push(formData);
-    localStorage.setItem("daftarPelanggan", JSON.stringify(daftarPelanggan));
+        // Simpan ke localStorage
+        let daftarPelanggan = JSON.parse(localStorage.getItem("daftarPelanggan")) || [];
+        daftarPelanggan.push(formData);
+        localStorage.setItem("daftarPelanggan", JSON.stringify(daftarPelanggan));
 
 
-      // Tampilkan data di modal konfirmasi
-      document.getElementById("confirmNama").innerText = nama.value;
-      document.getElementById("confirmHP").innerText = nomorHP.value;
-      document.getElementById("confirmEmail").innerText = email.value;
-      document.getElementById("confirmKTP").innerText = ktp.value;
-      document.getElementById("confirmAlamat").innerText = alamat.value;
-      document.getElementById("confirmPaket").innerText = paket.value;
+        // Tampilkan data di modal konfirmasi
+        document.getElementById("confirmNama").innerText = nama.value;
+        document.getElementById("confirmHP").innerText = nomorHP.value;
+        document.getElementById("confirmEmail").innerText = email.value;
+        document.getElementById("confirmKTP").innerText = ktp.value;
+        document.getElementById("confirmAlamat").innerText = alamat.value;
+        document.getElementById("confirmPaket").innerText = paket.value;
 
-      modal.classList.remove("hidden");
+        modal.classList.remove("hidden");
+      });
+
+      btnLanjutkan.addEventListener("click", function () {
+        const nama = document.getElementById("confirmNama").innerText;
+        const nomorHP = document.getElementById("confirmHP").innerText;
+        const email = document.getElementById("confirmEmail").innerText;
+        const ktp = document.getElementById("confirmKTP").innerText;
+        const alamat = document.getElementById("confirmAlamat").innerText;
+        const paket = document.getElementById("confirmPaket").innerText;
+
+        const pesan = `Halo Admin IntraOne!\n\nSaya ingin mendaftar paket wifi dengan rincian:\n\nNama: ${nama}\nNomor HP: ${nomorHP}\nEmail: ${email}\nNomor KTP: ${ktp}\nAlamat: ${alamat}\nPaket Internet: ${paket}\n\nMohon diproses, terima kasih!`;
+
+        const whatsappUrl = `https://wa.me/6281212678789?text=${encodeURIComponent(pesan)}`;
+        window.open(whatsappUrl, '_blank');
+
+        modal.classList.add("hidden");
+      });
     });
-
-    btnLanjutkan.addEventListener("click", function() {
-      const nama = document.getElementById("confirmNama").innerText;
-      const nomorHP = document.getElementById("confirmHP").innerText;
-      const email = document.getElementById("confirmEmail").innerText;
-      const ktp = document.getElementById("confirmKTP").innerText;
-      const alamat = document.getElementById("confirmAlamat").innerText;
-      const paket = document.getElementById("confirmPaket").innerText;
-
-      const pesan = `Halo Admin IntraOne!\n\nSaya ingin mendaftar paket wifi dengan rincian:\n\nNama: ${nama}\nNomor HP: ${nomorHP}\nEmail: ${email}\nNomor KTP: ${ktp}\nAlamat: ${alamat}\nPaket Internet: ${paket}\n\nMohon diproses, terima kasih!`;
-
-      const whatsappUrl = `https://wa.me/6281212678789?text=${encodeURIComponent(pesan)}`;
-      window.open(whatsappUrl, '_blank');
-
-      modal.classList.add("hidden");
-    });
-  });
   </script>
 </body>
 

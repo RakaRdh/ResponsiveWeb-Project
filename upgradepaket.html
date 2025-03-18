@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,44 +21,64 @@
       background-color: #0f172a;
       color: #f1f5f9;
     }
+
     .glass {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
     }
+
     .glass:hover {
       border-color: rgba(255, 255, 255, 0.3);
       transform: translateY(-2px);
     }
+
     .btn-gradient {
       background: linear-gradient(to right, #0ea5e9, #06b6d4);
       color: #fff;
     }
+
     .btn-gradient:hover {
       opacity: 0.85;
     }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-sky-900 px-4 py-3 fixed w-full z-50 shadow-lg">
-    <div class="container">
-      <a class="navbar-brand font-bold text-xl" href="dashboard.html">IntraOne</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+  <nav class="bg-sky-900 py-4 px-4 md:px-6 lg:px-8 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex items-center justify-between">
+      <a class="navbar-brand text-xl font-bold" href="#">
+        <img src="media/logo-white.png" class="h-5 md:h-10" alt="Logo">
+      </a>
+
+      <!-- Hamburger Icon (mobile only) -->
+      <button class="md:hidden focus:outline-none" id="menu-toggle">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+          </path>
+        </svg>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav gap-4">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="dashboard.html">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <button id="logoutBtn" class="btn btn-danger btn-sm">Logout</button>
-          </li>
-        </ul>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="dashboard.html" class="text-white hover:opacity-80 transition">Beranda</a>
+        <a href="#.html" class="text-white hover:opacity-80 transition">Profil</a>
+        <a href="index.html" id="logoutBtn"
+          class="border border-white text-white px-4 py-2 rounded-md hover:!text-black hover:bg-white transition duration-300">
+          Keluar
+        </a>
       </div>
+    </div>
+
+    <!-- Mobile Navigation (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pt-4 pb-6 space-y-3">
+      <a href="dashboard.html" class="block text-gray-700 hover:text-sky-700 transition">Beranda</a>
+      <a href="#.html" class="block text-gray-700 hover:text-sky-700 transition">Profil</a>
+      <a href="index.html" class="block text-gray-700 hover:text-sky-700 transition">Keluar</a>
     </div>
   </nav>
 
@@ -82,11 +103,19 @@
             </select>
           </div>
 
-          <!-- Durasi -->
+          <!-- Durasi (Dropdown) -->
           <div>
             <label for="durasiBaru" class="block text-lg font-medium mb-2">Durasi (Bulan)</label>
-            <input type="number" id="durasiBaru" min="1" value="1" class="form-control bg-sky-900/40 text-white border border-sky-600" />
+            <select id="durasiBaru"
+              class="form-select bg-sky-900/40 text-white border border-sky-600 focus:bg-sky-900/40 focus:text-white focus:border-sky-400 focus:outline-none">
+              <option value="1">1 Bulan</option>
+              <option value="3">3 Bulan</option>
+              <option value="6">6 Bulan</option>
+              <option value="12">12 Bulan</option>
+            </select>
           </div>
+
+
 
           <!-- Total Pembayaran -->
           <div class="text-center">
@@ -179,9 +208,10 @@
       }));
 
       // Redirect ke halaman payment.html
-      window.location.href = 'payment.html';
+      window.location.href = 'paymentupgrade.html';
     }
   </script>
 
 </body>
+
 </html>
