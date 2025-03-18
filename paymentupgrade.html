@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pembayaran Langganan - IntraOne</title>
   <link rel="shortcut icon" type="x-icon" href="media/logo-small.png">
+  <link rel="stylesheet" href="css/index.css">
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -176,7 +177,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="text-center text-slate-400 text-xs py-6 mt-16">
+  <footer class="absolute bottom-0 w-full text-center text-slate-400 text-xs py-6 mt-16">
     &copy; 2025 IntraOne. All Rights Reserved.
   </footer>
 
@@ -186,6 +187,19 @@
 
   <script>
     AOS.init({ duration: 1000 });
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('animate-slide-down');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('animate-slide-down');
+      }
+    });
 
     document.addEventListener("DOMContentLoaded", function () {
     const upgradeData = JSON.parse(localStorage.getItem('upgradeData'));

@@ -269,6 +269,19 @@
   <script>
     AOS.init({ duration: 1000, once: true });
 
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('animate-slide-down');
+      } else {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('animate-slide-down');
+      }
+    });
+
     $(document).ready(function () {
       $("#kecamatan").prop("disabled", true);
       $("#paketInternet").prop("disabled", true);
